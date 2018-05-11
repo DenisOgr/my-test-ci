@@ -1,0 +1,19 @@
+#!/us
+version: '3'
+
+services:
+    app:
+        restart: always
+        build: .
+        tty: true
+        environment:
+            SERVICE_ENV: local
+            SERVICE_REGION: us-east-1
+            BUILD_ID: 1
+            RELEASE_ID: 1
+            SERVICE_NAME: as-search-backend
+            SERVICE_FAMILY: api
+            CONSUL_HTTP_ADDR: consul:8500
+        volumes:
+            - .:/app
+       
